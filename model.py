@@ -11,7 +11,6 @@ class OrderLine:
     quantity: int
 
 
-@dataclass
 class Batch:
     def __init__(self, ref: str, sku: str, quantity: int, eta: Optional[datetime]):
         self.reference: str = ref
