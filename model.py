@@ -1,9 +1,10 @@
+from __future__ import annotations
 from datetime import datetime
 from dataclasses import dataclass
 from typing import Optional
 
 
-@dataclass(frozen=True)  # immutable dataclass with no behavior
+@dataclass(frozen=True)  # immutable dataclass with no behavior, value equality
 class OrderLine:
     id: str
     sku: str
@@ -41,3 +42,11 @@ class Batch:
     @property
     def available_quantity(self) -> int:
         return self._purchased_quantity - self.allocated_quantity
+
+    def __eq__(self, other: Batch) -> bool:
+        if not isinstance(other, Batch):
+            return False
+        return self.reference == other.reference
+
+    def __hash__(self):
+        return hash(self.reference)
