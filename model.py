@@ -12,11 +12,11 @@ class OrderLine:
 
 @dataclass
 class Batch:
-    def __init__(self, ref: str, sku: str, q: int, eta: Optional[datetime]):
+    def __init__(self, ref: str, sku: str, quantity: int, eta: Optional[datetime]):
         self.reference = ref
         self.sku = sku
-        self.quantity = q
+        self.quantity = quantity
         self.eta = eta
 
     def allocate(self, order_line: OrderLine):
-        order_line.quantity -= self.quantity
+        self.quantity -= order_line.quantity
