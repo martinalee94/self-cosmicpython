@@ -4,9 +4,10 @@ from dataclasses import dataclass
 from typing import Optional
 
 
+# Model is just a python object itself
 @dataclass(frozen=True)  # immutable dataclass with no behavior, value equality
 class OrderLine:
-    id: str
+    order_id: str
     sku: str
     quantity: int
 
