@@ -162,3 +162,6 @@ cython_debug/
 .mypy_cache
 __pycache__
 *.egg-info
+
+### VisualStudioCode ###
+.vscode/
